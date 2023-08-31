@@ -13,8 +13,7 @@ interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: "Chainxplorer",
-  description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+  description: "A blockchain explorer built with Next",
   mainNav: [
     {
       title: "Prices",
