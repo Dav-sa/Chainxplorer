@@ -23,7 +23,7 @@ export const Card = ({
   return (
     <div
       onClick={() => Router.push("/coins/[id]", `/coins/${id}`)}
-      className="h-aut flex w-auto flex-col items-center rounded-xl border-sky-700 bg-slate-800 p-6 text-center hover:border-2 hover:border-solid hover:shadow-md"
+      className=" border-solid border-2 border-slate-600 flex w-auto flex-col items-center rounded-xl   bg-slate-800 p-6 text-center hover:border-2 hover:border-solid hover:border-sky-300 "
     >
       <Image
         className="rounded-t-lg "
