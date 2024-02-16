@@ -12,26 +12,9 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Chainxplorer",
+  name: "Airfrance",
   description: "A blockchain explorer built with Next",
-  mainNav: [
-    {
-      title: "Prices",
-      href: "/",
-    },
-    {
-      title: "Blocks",
-      href: "/blocks",
-    },
-    {
-      title: "NFTS",
-      href: "/nft",
-    },
-    {
-      title: "erc20",
-      href: "/erc20",
-    },
-  ],
+  mainNav: [],
   links: {
     twitter: "https://twitter.com/_Dav___",
     github: "https://github.com/Dav-sa/Chainxplorer",

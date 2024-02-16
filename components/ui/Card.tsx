@@ -4,56 +4,80 @@ import Router from "next/router"
 import { Button } from "./button"
 
 interface CardProps {
-  id: string
-  name: string
-  ath: number
-  current_price: number
-  image: string
-  max_supply: number
+  id: number
+  fleet_average_age: string
+  airline_id: string
+  callsign: string
+  iata_code: string
+  icao_code: string
+  country_iso2: string
+  date_founded: string
+  iata_prefix_accounting: string
+  airline_name: string
+  country_name: string
+  fleet_size: string
+  status: string
+  type: string
 }
 
 export const Card = ({
   id,
-  name,
-  ath,
-  current_price,
-  image,
-  max_supply,
+  fleet_average_age,
+  airline_id,
+  callsign,
+  iata_code,
+  icao_code,
+  country_iso2,
+  date_founded,
+  iata_prefix_accounting,
+  airline_name,
+  country_name,
+  fleet_size,
+  status,
+  type,
 }: CardProps) => {
   return (
-    <div
-      onClick={() => Router.push("/coins/[id]", `/coins/${id}`)}
-      className=" border-solid border-2 border-slate-600 flex w-auto flex-col items-center rounded-xl   bg-slate-800 p-6 text-center hover:border-2 hover:border-solid hover:border-sky-300 "
-    >
-      <Image
-        className="rounded-t-lg "
-        src={image}
-        alt="picture of the coin"
-        width={100}
-        height={150}
-      />
-
+    <div className=" flex  flex-col items-center rounded-xl border-2 border-solid border-slate-600   bg-slate-800 p-6 text-center hover:border-2 hover:border-solid hover:border-sky-300 ">
       <div className="p-6">
         <p className="mb-2 text-2xl ">
-          Name : <span className="font-semibold">{name}</span>
+          Airline name : <span className="font-semibold">{airline_name}</span>
         </p>
         <p className="mb-4  hover:text-sky-300">
-          Current price :{" "}
-          <span className="font-semibold"> {current_price} $</span>
+          Country name :<span className="font-semibold"> {country_name} </span>
         </p>
 
         <p className="mb-4  hover:text-sky-300">
-          All time high : <span className="font-semibold">{ath} $</span>{" "}
+          Fleet size : <span className="font-semibold">{fleet_size} </span>{" "}
         </p>
         <p className="mb-4 hover:text-sky-300">
-          Max supply :{" "}
-          <span className="font-semibold">
-            {max_supply ? max_supply : "No limit"}
-          </span>
+          Fleet average age :
+          <span className="font-semibold">{fleet_average_age}</span>
         </p>
-        <Button variant="default" size="default">
-          More Details
-        </Button>
+        <p className="mb-4  hover:text-sky-300">
+          Founded in : <span className="font-semibold">{date_founded} </span>{" "}
+        </p>
+        <p className="mb-4 hover:text-sky-300">
+          Callsign :<span className="font-semibold">{callsign}</span>
+        </p>
+        <p className="mb-4 hover:text-sky-300">
+          iata code :<span className="font-semibold">{iata_code}</span>
+        </p>
+        <p className="mb-4 hover:text-sky-300">
+          iata prefix :
+          <span className="font-semibold">{iata_prefix_accounting}</span>
+        </p>
+        <p className="mb-4 hover:text-sky-300">
+          icao code :<span className="font-semibold">{icao_code}</span>
+        </p>
+        <p className="mb-4 hover:text-sky-300">
+          country iso2 :<span className="font-semibold">{country_iso2}</span>
+        </p>
+        <p className="mb-4 hover:text-sky-300">
+          status :<span className="font-semibold">{status}</span>
+        </p>
+        <p className="mb-4 hover:text-sky-300">
+          type :<span className="font-semibold">{type}</span>
+        </p>
       </div>
     </div>
   )

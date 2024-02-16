@@ -6,11 +6,16 @@ import { Layout } from "@/components/layout"
 import { Card } from "@/components/ui/Card"
 
 export default function IndexPage() {
+  const url = "https://ezcppwnavhquepnbdzap.supabase.co/rest/v1/airfrance"
+  const options = {
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV6Y3Bwd25hdmhxdWVwbmJkemFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDUzMjcxMTMsImV4cCI6MjAyMDkwMzExM30.vzAmoqfrPq6yf7WeIPp_aRvJvUl9jp1xy1hSrvu3IeQ",
+    },
+  }
+
   const { isLoading, error, data } = useQuery({
-    queryKey: ["coinprices"],
-    queryFn: () =>
-      fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false
-      `).then((res) => res.json()),
+    queryFn: () => fetch(url, options).then((res) => res.json()),
   })
 
   if (isLoading)
@@ -25,28 +30,30 @@ export default function IndexPage() {
   return (
     <Layout>
       <Head>
-        <title>Chainxplorer</title>
-        <meta
-          name="description"
-          content="Chainxplorer gives you the latest informations about crypto prices, ethereum blocks, and addresses content"
-        />
+        <title>Air France</title>
+        <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="container grid flex-col justify-center  gap-6 pt-6 pb-8 md:grid-cols-2 md:py-10 lg:grid-cols-3">
-        {data.map((coin) => {
-          return (
-            <Card
-              id={coin.id}
-              current_price={coin.current_price}
-              name={coin.name}
-              key={coin.id}
-              ath={coin.ath}
-              image={coin.image}
-              max_supply={coin.max_supply}
-            ></Card>
-          )
-        })}
+      <section className="container  flex-col justify-center  gap-6 pt-6 pb-8  md:py-10">
+        {data.map((item) => (
+          <Card
+            id={item.id}
+            fleet_average_age={item.fleet_average_age}
+            airline_id={item.airline_id}
+            callsign={item.callsign}
+            iata_code={item.iata_code}
+            icao_code={item.icao_code}
+            country_iso2={item.country_iso2}
+            date_founded={item.date_founded}
+            iata_prefix_accounting={item.iata_prefix_accounting}
+            airline_name={item.airline_name}
+            country_name={item.country_name}
+            fleet_size={item.fleet_size}
+            status={item.status}
+            type={item.type}
+          />
+        ))}
       </section>
     </Layout>
   )
